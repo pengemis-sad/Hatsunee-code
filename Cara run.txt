@@ -1,0 +1,68 @@
+# Running HatsuneeBot on Termux and Replit
+
+## Termux Instructions
+
+1. Open Termux on your Android device.
+
+2. Update and upgrade Termux packages:
+   ```
+   pkg update && pkg upgrade
+   ```
+
+3. Install Node.js and npm:
+   ```
+   pkg install nodejs
+   ```
+
+4. Create a directory for your project:
+   ```
+   mkdir HatsuneeBot
+   cd HatsuneeBot
+   ```
+
+5. Create a new file named `hatsuneeAuth.js`:
+   ```
+   nano hatsuneeAuth.js
+   ```
+
+6. Copy and paste the JavaScript code into this file. Save and exit (Ctrl+X, then Y, then Enter).
+
+7. Initialize npm and install required dependencies:
+   ```
+   npm init -y
+   npm install fs path crypto readline
+   ```
+
+8. Run the script:
+   ```
+   node hatsuneeAuth.js
+   ```
+
+## Replit Instructions
+
+1. Go to [Replit](https://replit.com/) and sign in or create an account.
+
+2. Click on "Create" to start a new project.
+
+3. Choose "Node.js" as the template.
+
+4. Name your project (e.g., "HatsuneeBot") and click "Create Repl".
+
+5. In the main `index.js` file, paste the JavaScript code.
+
+6. In the Shell tab, install the required dependencies:
+   ```
+   npm install fs path crypto readline
+   ```
+
+7. Click the "Run" button at the top of the screen to start your bot.
+
+Note: Replit provides a virtual file system, so the bot will create and access the `session` folder and `enc.json` file within this virtual environment.
+
+## Troubleshooting
+
+- If you encounter permission issues in Termux, run `termux-setup-storage` and grant the necessary permissions.
+- On Replit, make sure your code is set to run from `index.js` in the project settings.
+- If you face any "module not found" errors, double-check that you've installed all required dependencies.
+
+Remember to keep your password secure and never share it publicly!

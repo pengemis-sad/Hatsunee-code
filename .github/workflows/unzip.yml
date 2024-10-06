@@ -1,0 +1,26 @@
+name: Unzip Files
+on:
+  push:
+    paths:
+      - '*.zip'
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Unzip files
+      run: |
+        for zip in *.zip; do
+          unzip -o "$zip" -d "${zip%.zip}"
+          rm "$zip"
+        done
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Unzip files" -a || echo "No changes to commit"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
